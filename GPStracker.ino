@@ -19,7 +19,8 @@
 //#define SOFTWARE_VERSION "1.09"  // Deep sleep
 //#define SOFTWARE_VERSION "1.10"  // Multi SMS read
 //#define SOFTWARE_VERSION "1.11"  // Added accumulated travel distance
-#define SOFTWARE_VERSION "1.12"  // Log interval degrade according to travel speed
+//#define SOFTWARE_VERSION "1.12"  // Log interval degrade according to travel speed
+#define SOFTWARE_VERSION "1.13"   // Added output ON/OFF 
 
 #define TINY_GSM_MODEM_SIM7600
 #define TINY_GSM_RX_BUFFER 1024  // Set RX buffer to 1Kb
