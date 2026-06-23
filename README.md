@@ -1,3 +1,5 @@
+![Build Status](https://github.com/HHavn/GPStracker/actions/workflows/build.yml/badge.svg)
+
 GPS Tracker Brugsanvisning.
 GPS tracker. Automatisk start og stop af tracking. Output er KML filer, der læses af Google Earth.
 Tracker kan styres via SMS. Status og position kan læses via SMS.
