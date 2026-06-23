@@ -4,6 +4,23 @@ Tracker kan styres via SMS. Status og position kan læses via SMS.
 Mulighed for deep sleep, så batteri levetiden kan udnyttes maximalt.
 
 
+Filstruktur.
+Sketchen er opdelt i flere .ino filer efter ansvarsområde. Arduino samler automatisk
+alle .ino filer i samme mappe til én sketch, så filerne deler globale variabler uden
+videre.
+
+GPStracker.ino	Includes, defines, globale variabler, setup() og loop().
+Utils.ino	Generelle hjælpefunktioner: Print, Println, MapFloat, split.
+Power.ino	Deep sleep, batteri-måling, GPS sleep/wake.
+Modem.ino	GSM modem start/stop og status.
+Sms.ino		Modtagelse/afsendelse af SMS og kommando-dispatch.
+Config.ino	Læsning/skrivning af Config.cfg og SMS getparam/setparam.
+SdStorage.ino	SD-kort info, daglig logfil og KML-logger, lavniveau filfunktioner.
+Gps.ino		GPS-task, position/tid-parsing, sommertid (DST).
+utilities.h	Board pin-definitioner.
+Config.cfg	Konfigurationsfil på SD-kortet (se afsnittet "SD kort" nedenfor).
+
+
 Legale kommando (Der skelnes ikke mellem store og små bogstaver):
 Getstat, getstatus, gst
 Getpos, getposition, gpo
