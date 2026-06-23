@@ -86,6 +86,8 @@ TinyGsm modem(SerialAT);
 #define BOARD_GPS_PPS_PIN 23
 #define BOARD_GPS_WAKEUP_PIN 19
 
+#define ON_OFF_PIN 32
+
 // SPI  SD card reader
 #define VSPI_MOSI 15  // VSPI_MOSI
 #define VSPI_MISO 2   // VSPI_MISO
@@ -219,6 +221,9 @@ void setup() {
   pinMode(BOARD_PWRKEY_PIN, OUTPUT);
 
   pinMode(BOARD_GPS_WAKEUP_PIN, OUTPUT);
+
+  pinMode(ON_OFF_PIN, OUTPUT);
+  digitalWrite(ON_OFF_PIN, LOW);
 
   delay(100);
 

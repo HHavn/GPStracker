@@ -139,6 +139,18 @@ void HandleSMS(String header, String line1, String line2) {
       cmdFound = true;
     }
 
+    //-------------------------------------------------------------------------
+    if ((line1.indexOf("seton") > -1) || (line1.indexOf("son") > -1)) {
+      SetOn(line1, sender);
+      cmdFound = true;
+    }
+
+    //-------------------------------------------------------------------------
+    if ((line1.indexOf("setoff") > -1) || (line1.indexOf("soff") > -1)) {
+      SetOff(line1, sender);
+      cmdFound = true;
+    }
+
 
     if (cmdFound == true) {
       // Postphone deep sleep
@@ -152,7 +164,9 @@ void HandleSMS(String header, String line1, String line2) {
       String lin6 = "GetPos\n";
       String lin7 = "GetParam\n";
       String lin8 = "SetParam\n";
-      String SMSText = lin3 + lin4 + lin5 + lin6 + lin7 + lin8;
+      String lin9 = "SetOn\n";
+      String lin10 = "SetOff\n";
+      String SMSText = lin3 + lin4 + lin5 + lin6 + lin7 + lin8 + lin9 + lin10;
       SendSMS(SMSText, sender);
     }
   } else {  // check sender
@@ -236,6 +250,38 @@ void GetPosition(String line1, String sender) {
 
   Print("SMS size: ");
   Println(String(SMSText.length()));
+
+  SendSMS(SMSText, sender);
+}
+
+
+//--------------------------------------------------------------------
+void SetOn(String line1, String sender) {
+  String SMSText = "";
+
+  Serial.println("seton received");
+
+  digitalWrite(ON_OFF_PIN, HIGH);
+
+  String lin2 = "Cmd: " + line1 + "\n";
+  String lin3 = "ON_OFF_PIN set ON\n";
+  SMSText = lin2 + lin3;
+
+  SendSMS(SMSText, sender);
+}
+
+
+//--------------------------------------------------------------------
+void SetOff(String line1, String sender) {
+  String SMSText = "";
+
+  Serial.println("setoff received");
+
+  digitalWrite(ON_OFF_PIN, LOW);
+
+  String lin2 = "Cmd: " + line1 + "\n";
+  String lin3 = "ON_OFF_PIN set OFF\n";
+  SMSText = lin2 + lin3;
 
   SendSMS(SMSText, sender);
 }

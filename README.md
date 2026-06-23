@@ -28,6 +28,8 @@ Getstat, getstatus, gst
 Getpos, getposition, gpo
 Getparam, gpa
 Setparam, spa
+Seton, son		Sætter ON_OFF_PIN (pin 32) høj.
+Setoff, soff		Sætter ON_OFF_PIN (pin 32) lav.
 
 Setparam parameter.
 radius=N		N er radius i meter. Radius for bevægelse detektion. (5..100)
